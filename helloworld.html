@@ -1,0 +1,37 @@
+<html> 
+<head> 
+<title>nowjs test</title> 
+<script src="/nowjs/now.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> 
+
+<script>
+	function talk() {
+		now.distributeMessage($('#text-input').val());
+		$("#text-input").val("");
+	}
+$(document).ready(function(){
+  
+  now.name = prompt("What's your name?", "");  
+  now.receiveMessage = function(name, message){
+	$("#messages").append(name+" : "+ message);
+  }
+  
+  $("#send-button").click(function(){
+	  talk();
+  });
+  $(window).keypress(function(e) {
+    if(e.keyCode == 13) {
+		talk();
+    }
+});
+
+});
+</script>
+</head> 
+ 
+<body> 
+<div id="messages"></div>
+<input type="text" id="text-input" style="width: 400px;">
+<input type="button" value="Send" id="send-button">
+</body> 
+</html> 
