@@ -19,7 +19,9 @@ var server = require('http').createServer(function(req, response){
     response.end();
   }
 });
-server.listen(8080, "127.0.0.1");
+
+server.listen(8080);
+
 var everyone = require("now").initialize(server);
 
 
