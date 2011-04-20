@@ -1,11 +1,23 @@
 ﻿var sanitizer = require('sanitizer');
 var fs = require('fs');
+
+var sendFile = function(filename, response) {
+    fs.readFile(filename, function(err, data){
+      response.writeHead(200, {'Content-Type':'text/html'});  
+      response.write(data);  
+      response.end();
+    });
+};
+
 var server = require('http').createServer(function(req, response){
-  fs.readFile('helloworld.html', function(err, data){
-    response.writeHead(200, {'Content-Type':'text/html'});  
-    response.write(data);  
+  if(req.url == "/") { 
+    sendFile("helloworld.html", response);
+  } else if (req.url == "/jquery.min.js") {
+    sendFile("jquery.min.js", response); 
+  } else {
+    response.writeHead(302, {"Content-Type":"text/html", "Location":"/"});
     response.end();
-  });
+  }
 });
 server.listen(8080, "127.0.0.1");
 var everyone = require("now").initialize(server);
