@@ -24,9 +24,9 @@ server.listen(8080);
 
 var everyone = require("now").initialize(server);
 
-
 everyone.connected(function(){
   console.log("Joined: " + this.now.name);
+  everyone.now.loginNotice(this.now.name);
 });
 
 

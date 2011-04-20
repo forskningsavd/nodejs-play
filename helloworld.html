@@ -13,7 +13,15 @@ $(document).ready(function(){
   
   now.name = prompt("What's your name?", "");  
   now.receiveMessage = function(name, message){
-    $("#messages").append('<br>'+name+" : "+ message);
+    addMessage(name+" : "+ message);
+  }
+
+  now.loginNotice = function(name) {
+    addMessage(name+" joined the chat...");
+  }
+
+  var addMessage = function(message) {
+    $("#messages").append('<br>'+message);
   }
   
   $("#send-button").click(function(){
