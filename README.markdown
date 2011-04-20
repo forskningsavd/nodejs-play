@@ -1,4 +1,3 @@
-
 The nowjs helloworld example, working.
 ========================================
 
@@ -8,4 +7,5 @@ Dependencies
 =======================================
 
 npm install now
+
 npm install sanitizer
