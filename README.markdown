@@ -1,11 +1,10 @@
 The nowjs helloworld example, working.
 ========================================
 
-added sanitizer module for safer play.
+Added sanitizer module for safer play.
 
 Dependencies
 =======================================
 
-npm install now
-
-npm install sanitizer
+    npm install now
+    npm install sanitizer
